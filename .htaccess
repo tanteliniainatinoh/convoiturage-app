@@ -1,0 +1,11 @@
+RewriteEngine On
+RewriteBase /projet/
+
+# Rediriger les requêtes d'URL vers le fichier index.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php/$1 [L]
+
+# Autoriser l'accès aux répertoires assets
+RewriteCond %{REQUEST_URI} ^/assets/ [NC]
+RewriteRule ^ - [L]
